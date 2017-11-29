@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+  <script type="text/javascript">
+  	var days_of_the_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    days_of_the_week.unshift(days_of_the_week.pop());
+    var days_of_the_week1 = [['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], ['Saturday', 'Sunday']];
+    days_of_the_week1.pop();
+    var last = days_of_the_week1[0].sort();
+    console.log(last);
+  </script>
+</body>
+</html>
