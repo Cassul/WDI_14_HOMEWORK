@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+	</title>
+</head>
+<body>
+		<script type="text/javascript">
+			var way = [['Flinders Street', 'Richmond', 'East Richmond', 'Burnley', 'Hawthorn', 'Glenferrie'], ["Flagstaff", "Melbourne Central", "Parliament", "Richmond", "Kooyong", "Tooronga"], ["Southern Cross", "Richmond", "South Yarra", "Prahran", "Windsor"]];
+			var origin = prompt('your station');
+    		var destination = prompt('your destination station');
+    		var start = getIndexOfStation (way, origin);
+    		var end = getIndexOfStation (way, destination);
+    		var startLine = start[0];
+    		var endLine = end[0];
+    		var startStation = start[1];
+    		var endStation = end[1];
+    		var richmondS = way[startLine].indexOf("Richmond");
+    		var richmondE = way[endLine].indexOf("Richmond");    		
+
+    		var showStations = [];
+    		function getIndexOfStation (arr, station) {
+				  for (var i = 0; i < arr.length; i++) {
+				    var index = arr[i].indexOf(station);
+				    if (index > -1) {
+				      return [i, index];
+				    }
+				  }
+			}
+			console.log(start, end);
+		    		function findStation (origin, destination) {
+		    			if (startLine == endLine) {
+		    			    if (startStation < endStation) {
+			    				for (i=startStation; i <= endStation; i++) {
+			    					showStations.push(way[startLine][i] + '------>');}
+			    				alert(showStations + showStations.length + ' stops');
+			    				} else {
+			    					for (i=endStation; i == startStation; i--) {
+			    					showStations.push(way[startLine][i] + '------>');
+			    					}
+			    				alert(showStations + showStations.length + ' stops');
+			    			}
+			    		} else {
+		    				if (startStation < richmondS) {
+		    					for (i=startStation; i < richmondS; i++) {
+			    					showStations.push(way[startLine][i] + '------>');
+			    				}
+		    				} else {
+		    					for (i=startStation; i > richmondS; i--) {
+			    					showStations.push(way[startLine][i] + '------>');
+			    					}
+		    				} if (endStation < richmondE) {
+		    					for (i=richmondE ; i >= endStation; i--) {
+			    					showStations.push(way[endLine][i] + '------>');
+			    				}
+		    				} else {
+		    					for (i=richmondE; i <= endStation; i++) {
+			    					showStations.push(way[endLine][i] + '------>');
+			    					}
+		    				}
+		    				console.log(showStations, richmondS, richmondE);
+			    			alert(showStations + showStations.length + ' stops');
+			    		}
+		    		}
+		    findStation(origin, destination);
+		</script>
+</body>
+</html>
