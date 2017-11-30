@@ -7,7 +7,7 @@
 <body>
 		<script type="text/javascript">
 			var way = [['Flinders Street', 'Richmond', 'East Richmond', 'Burnley', 'Hawthorn', 'Glenferrie'], ["Flagstaff", "Melbourne Central", "Parliament", "Richmond", "Kooyong", "Tooronga"], ["Southern Cross", "Richmond", "South Yarra", "Prahran", "Windsor"]];
-			var origin = prompt('your station');
+			var origin = prompt('your start station');
     		var destination = prompt('your destination station');
     		var start = getIndexOfStation (way, origin);
     		var end = getIndexOfStation (way, destination);
@@ -16,15 +16,16 @@
     		var startStation = start[1];
     		var endStation = end[1];
     		var richmondS = way[startLine].indexOf("Richmond");
-    		var richmondE = way[endLine].indexOf("Richmond");    		
+    		var richmondE = way[endLine].indexOf("Richmond");
 
+    	
     		var showStations = [];
     		function getIndexOfStation (arr, station) {
 				  for (var i = 0; i < arr.length; i++) {
 				    var index = arr[i].indexOf(station);
 				    if (index > -1) {
 				      return [i, index];
-				    }
+				    } else origin = prompt('Write your staion again');
 				  }
 			}
 			console.log(start, end);
