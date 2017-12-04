@@ -11,13 +11,6 @@
     		var destination = prompt('your destination station');
     		var start = getIndexOfStation (way, origin);
     		var end = getIndexOfStation (way, destination);
-    		var startLine = start[0];
-    		var endLine = end[0];
-    		var startStation = start[1];
-    		var endStation = end[1];
-    		var richmondS = way[startLine].indexOf("Richmond");
-    		var richmondE = way[endLine].indexOf("Richmond");
-
     	
     		var showStations = [];
     		function getIndexOfStation (arr, station) {
@@ -28,18 +21,25 @@
 				    } 
 				  }
 			}
-			console.log(start, end);
+
+			var startLine = start[0];
+    		var endLine = end[0];
+    		var startStation = start[1];
+    		var endStation = end[1];
+    		var richmondS = way[startLine].indexOf("Richmond");
+    		var richmondE = way[endLine].indexOf("Richmond");
+
 		    		function findStation (origin, destination) {
 		    			if (startLine == endLine) {
 		    			    if (startStation < endStation) {
 			    				for (i=startStation; i <= endStation; i++) {
-			    					showStations.push(way[startLine][i] + '------>');}
-			    				alert(showStations + showStations.length + ' stops');
-			    				} else {
-			    					for (i=endStation; i == startStation; i--) {
 			    					showStations.push(way[startLine][i] + '------>');
-			    					}
-			    				alert(showStations + showStations.length + ' stops');
+			    				}
+			    			} else if(startStation > endStation) {
+			    				for (i=endStation; i >= startStation; i--) {
+			    				console.log(showStations);
+			    				showStations.push(way[startLine][i] + '------>');
+			    			    }
 			    			}
 			    		} else {
 		    				if (startStation < richmondS) {
@@ -60,8 +60,10 @@
 			    					}
 		    				}
 		    				console.log(showStations, richmondS, richmondE);
-			    			alert(showStations + showStations.length + ' stops');
 			    		}
+
+			    		alert(showStations + showStations.length + ' stops');
+
 		    		}
 		    findStation(origin, destination);
 		</script>
