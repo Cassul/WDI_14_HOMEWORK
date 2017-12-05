@@ -1,5 +1,51 @@
+* {
+	box-sizing: border-box;
+}
 body {
-	background-image: url("images/background.jpg");
 	background: #D6D6D6;
-	background-repeat: repeat;
+}
+
+.container {
+	margin: auto;
+	width: 100%;
+}
+
+#bg {
+	background-image: url("../images/background.jpg");
+}
+
+#logo {
+	align-content: center;
+}
+
+main {
+	vertical-align: top;
+	padding: 10px;
+	display: inline-block;
+	width: 40%;
+	background-color: white;
+}
+
+nav {
+	vertical-align: top;
+	display: inline-block;
+	width: 16%;
+	background-color: white;
+}
+
+article img {
+	width: 100%;
+}
+
+article {
+	margin-bottom: 10px;
+}
+
+nav img {
+	width: 100%;
+}
+
+article > footer {
+	border-top: 1px dotted black;
+	border-bottom: 1px solid black;
 }
