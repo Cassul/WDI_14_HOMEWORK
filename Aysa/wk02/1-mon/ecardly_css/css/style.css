@@ -6,30 +6,32 @@ body {
 }
 
 .container {
-	margin: auto;
-	width: 100%;
+	margin: 0 auto;
+	width: 80%;
 }
 
 #bg {
 	background-image: url("../images/background.jpg");
+	text-align: center;	
 }
 
 #logo {
-	align-content: center;
+	margin-top: 30px;
 }
 
 main {
 	vertical-align: top;
 	padding: 10px;
 	display: inline-block;
-	width: 40%;
+	width: 70%;
 	background-color: white;
+	margin-right: 40px;
 }
 
 nav {
 	vertical-align: top;
 	display: inline-block;
-	width: 16%;
+	width: 20%;
 	background-color: white;
 }
 
