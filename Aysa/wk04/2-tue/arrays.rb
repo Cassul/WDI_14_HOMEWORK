@@ -37,11 +37,12 @@ binding.pry
 #   end
 # end
 
-heroes.each do |i|
-  if heroes[i.to_i].start_with?('B')
-    puts heroes[i.to_i]
+heroes.each do |hero|
+  if hero.start_with?('B') 
+  puts hero
   end
 end
+
 
 #Hashes
 #Initialize a hash called ninja_turtle with the properties name, weapon and radical. They should have values of "Michelangelo", "Nunchuks" and true respectively.

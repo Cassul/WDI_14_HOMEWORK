@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+	</title>
+</head>
+<body>
+		<script type="text/javascript">
+			const stations = {
+
+				Alamein: ['Flinders Street', 'Richmond', 'East Richmond', 'Burnley', 'Hawthorn', 'Glenferrie'], 
+				"Glen Waverly": ["Flagstaff", "Melbourne Central", "Parlament", "Richmond", "Kooyong", "Tooronga"],
+				Sandringham: ["Southern Cross", "Richmond", "South Yarra", "Prahran", "Windsor"]
+
+			};
+
+			let userInput1 = prompt('your start station');
+			//check your start station
+			while (getIndexOfStation(stations, userInput1) == false) {
+				userInput1 = prompt('Write your start station again');
+			}
+			let userInput2 = prompt('your end station');
+			//check your end station
+			while (getIndexOfStation(stations, userInput2) == false) {
+				userInput2 = prompt('Write your end station again');
+    		}
+
+    		function getIndexOfStation (stations, station) {
+    			let stationIndex;
+    			let line;
+    			for (let key in stations) {
+	    			for (let i = 0; i < stations[key].length; i++) {
+						let index = stations[key].indexOf(station);
+						    if (index > -1) {
+						    	stationIndex = index;
+						    	line = key;
+							} 
+					} 
+				}
+				if (stationIndex>=0) {
+					return [line, stationIndex];
+				} else return false;
+			}
+
+			const usersStart = getIndexOfStation(stations, userInput1);
+    		const usersEnd = getIndexOfStation(stations, userInput2);
+    		const startLine = usersStart[0];
+    		const endLine = usersEnd[0];
+    		const showStations = [];
+
+    		//two different flows dependings if you're traveling same line or not
+    		if (startLine === endLine) {
+    			let startStation = usersStart[1];
+    			let endStation = usersEnd[1];
+    			showRoute (startStation, endStation);
+    		} else {
+    			//from the initial station to change station
+    			let startStation = usersStart[1];
+    			let endStation = (findIndexOfSameStation (stations[startLine], stations[endLine]))[0];
+    			showRoute (startStation, endStation);
+    			//from the change station to the final destination
+    			let startStation2 = (findIndexOfSameStation (stations[startLine], stations[endLine]))[1];
+    			let endStation2 = usersEnd[1];
+    			showRoute (startStation2, endStation2);
+    		}
+
+    		//find the matching change stations
+    		function findIndexOfSameStation (array1, array2) {
+    			let indexesOfSameStations;
+    			for(let i=0; i < array1.length; i++) {
+    				for (let k=0; k <array2.length; k++) {
+    					if (array1[i] === array2[k]) {
+    						indexesOfSameStations = [i, k];
+    					}
+    				}
+    			}
+    			return indexesOfSameStations;
+    		}
+
+		    		function showRoute (startStation, endStation) {
+	    			    if (startStation < endStation) {
+		    				for (let i = startStation; i <= endStation; i++) {
+		    					showStations.push(stations[startLine][i] + '------>');
+		    				}
+		    			} else {
+		    				for (let i = startStation; i >= endStation; i--) {
+		    				showStations.push(stations[endLine][i] + '------>');
+		    			    }
+		    			}
+
+		    			return true;
+
+		    		} 
+
+		    	console.log("You're traveling from " + startLine + " to " + endLine + "\n" + showStations);
+
+		</script>
+</body>
+</html>

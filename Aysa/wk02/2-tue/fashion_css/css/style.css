@@ -26,16 +26,16 @@ nav {
 }
 
 .letter {
+	display: flex;
 	color: #A7A7A8;
-	font-size: 90px;
-	display: inline-block;
-	width: 10%;
-	vertical-align: top;
+	font-size: 40px;
+	flex-wrap:; wrap;
+	width: 30%;
 }
 
 .afterC {
-	display: inline-block;
-	width: 40%;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 article img {
