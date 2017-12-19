@@ -26,12 +26,22 @@ heroes.shuffle
 heroes[rand(0..9)]
 
 #Select all elements in heroes that begin with "B" using a method. The Ruby documentation might help.
-i = 0
-while i <= heroes.length
-  puts heroes[i].start_with?('B')
-  i++
-end
+binding.pry
 
+# i = 0
+# while i <= heroes.length do
+#   puts i
+#   if heroes[i].start_with?('B')
+#     puts heroes[i]
+#   i = i + 1
+#   end
+# end
+
+heroes.each do |i|
+  if heroes[i.to_i].start_with?('B')
+    puts heroes[i.to_i]
+  end
+end
 
 #Hashes
 #Initialize a hash called ninja_turtle with the properties name, weapon and radical. They should have values of "Michelangelo", "Nunchuks" and true respectively.
@@ -42,22 +52,21 @@ ninja_turtle = {
 }
 
 #Add a key age to ninja_turtle. Set it to whatever numerical value you'd like.
-binding.pry
+ninja_turtle[:age] = 17
 
-
-# Your answer here
 #Remove the radical key-value pair from ninja_turtle.
+ninja_turtle.delete(:radical)
 
-# Your answer here
 #Add a key pizza_toppings to ninja_turtle. Set it to an array of strings (e.g., ["cheese", "pepperoni", "peppers"]).
+ninja_turtle[pizza_toppings] = ["cheese", "pepperoni", "peppers"]
 
-# Your answer here
-#
-# Your answer here
+
 #Produce an array containing all of ninja_turtle's keys using a method. The Ruby documentation might help.
+arr_all_keys = []
+ninja_turtle.each{ |key,value| arr_all_keys.push(value) }
 
-# Your answer here
 #Bonus
 #Print out each key-value pair in the following format - "KEY's is equal to VALUE" -- using a method. The Ruby documentation might help.
-
-# Your answer here
+ninja_turtle.each do |key, value|
+  puts "#{key}:#{value}"
+end
