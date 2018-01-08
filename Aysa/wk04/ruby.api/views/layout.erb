@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello Jason!</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="stylesheet/style.css">
+</head>
+<body>
+  <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="javascript/api.js">
+  </script>
+  <div class="wrapper">
+    <div id="jason" class="modal">
+      <div class="wrap">
+      <h1>Jason</h1>
+      <p>I like you so much</p>
+      <p>You're the smartest man I've ever seen</p>
+      <p>You're my traveler and dreamer</p>
+      <p>You've seen and done so many great things</p>
+      <p>And stayed modest and fair man</p>
+      <p>I'm so proud of you</p>
+      <p>And more than like you</p>
+      <p>Merry Christmas!</p>
+      </div>
+    </div>
+  <img class="img-fluid" src="try.jpg"> 
+  </div>
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal" id="close" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <div class="buttons">
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-success">
+            <input type="radio" id="bitcoin" name="action" autocomplete="off"> Check bitcoin
+          </label>
+          <label class="btn btn-success">
+            <input type="radio" id="weather" name="action" autocomplete="off">Check weather
+          </label>
+          <label class="btn btn-success">
+            <input type="radio" id="thoughts" name="action" autocomplete="off">Check &#9829;
+          </label>
+          <label class="btn btn-success">
+          <%= yield %>
+        </div>
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-success">
+            <input type="radio" id="radiohead2" name="music" autocomplete="off"> Main version
+          </label>
+          <label class="btn btn-success">
+            <input type="radio" id="radiohead" name="music" autocomplete="off"> Incendies version
+          </label>
+          <label class="btn btn-success">
+            <input type="radio" id="silence" name="music" autocomplete="off"> Off
+          </label>
+        </div>
+      </div>
+      <div id="forecast">
+        <div id="0"></div>
+        <div id="1"></div>
+        <div id="2"></div>
+        <div id="3"></div>
+        <div id="4"></div>
+      </div>
+      <div id="crypto"></div>
+    </div>
+  </div>
+  <div id="music">
+  </div>
+  <script type="text/javascript" src="javascript/application.js">
+  </script>
+</body>
+</html>

@@ -21,7 +21,7 @@ def subtract(number1, number2)
 end
 
 def divide(number1, number2)
-  result = number1 / number2
+  result = number1.to_f / number2.to_f
   puts "Your result is - #{result}"
 end
 
