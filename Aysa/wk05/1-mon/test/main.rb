@@ -2,6 +2,10 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'httparty'
 require 'uri' #to encode to uri
+require 'active_record'
+require_relative 'db_config'
+require_relative 'models/movierecord'
+
 
 get '/' do
   erb :search
@@ -38,6 +42,13 @@ end
 
 get '/movie' do
   hash = omdb.query('t', params[:title])
+  movie_record = Movierecord.new
+  movie_record.title = hash["Title"]
+  movie_record.description = hash["Plot"]
+  movie_record.rate = hash["Rate"]
+  movie_record.year = hash["Year"]
+  movie_record.image_url = hash["Poster"]
+  movie_record.save
   @title = hash["Title"]
   @plot = hash["Plot"]
   @rate = hash["Rate"]
@@ -45,3 +56,5 @@ get '/movie' do
   @image_src = hash["Poster"]
   erb :result
 end
+
+#http://www.omdbapi.com/?type=series&s=rose&apikey=2f6435d9 - think about it
