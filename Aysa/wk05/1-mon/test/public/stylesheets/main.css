@@ -24,3 +24,8 @@ body, html {
 .btn {
   
 }
+
+ol, .main_page {
+  display: flex;
+  flex-direction: column;
+}

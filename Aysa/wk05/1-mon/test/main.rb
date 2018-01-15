@@ -5,6 +5,7 @@ require 'uri' #to encode to uri
 require 'active_record'
 require_relative 'db_config'
 require_relative 'models/movierecord'
+require 'pry'
 
 
 get '/' do
@@ -39,6 +40,14 @@ get '/search' do
     erb :result
   end
 end
+
+
+get '/search_history' do
+  @movies = Movierecord.all 
+  erb :search_history
+end
+
+
 
 get '/movie' do
   hash = omdb.query('t', params[:title])

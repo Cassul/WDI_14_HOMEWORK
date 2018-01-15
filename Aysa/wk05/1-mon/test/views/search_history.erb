@@ -1,0 +1,5 @@
+<ol>
+<% @movies.each do |hash|  %>
+  <a href="/movie?title=<%= hash.title %>"><%= hash.title %></a>
+<% end %>
+</ol>
