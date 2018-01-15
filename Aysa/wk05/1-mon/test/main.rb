@@ -47,7 +47,10 @@ get '/search_history' do
   erb :search_history
 end
 
-
+get '/search_history/:id' do
+  @movie = Movierecord.find_by(title: params[:id])
+  erb :movie_from_db
+end
 
 get '/movie' do
   hash = omdb.query('t', params[:title])
@@ -65,5 +68,7 @@ get '/movie' do
   @image_src = hash["Poster"]
   erb :result
 end
+
+
 
 #http://www.omdbapi.com/?type=series&s=rose&apikey=2f6435d9 - think about it
