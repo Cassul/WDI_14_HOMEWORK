@@ -1,0 +1,15 @@
+<h1><%= @project.title %></h1>
+<img src="<%= @project.preview.url %>">
+<% if logged_in? %>
+  <form action="/comments" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="project_id" value="<%= @project.id %>">
+    <input type="text" name="body" placeholder="leave your comment">
+    <input type="hidden" name="author_name" value="<%= session[:user_id]%>">
+    <button>confirm</button>
+  </form>
+<% end %>
+<% @comments.each do |comment|%>
+  <h1><%= comment.author_name %></h1>
+  <p><%= comment.body %></p>
+<% end %>
