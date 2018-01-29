@@ -1,7 +1,15 @@
 var body = document.querySelectorAll('body')[0];
-
+var cities = ["sf", "nyc", "au", "sy", "la"];
 
 var city = document.getElementById('city-type');
+
+cities.forEach(function(el,i) {
+  var option = document.createElement('option');
+  option.value = el;
+  option.innerHTML = el;
+  city.appendChild(option);
+});
+
 city.addEventListener("change", function() {
     if(city.value == "sf") {
       body.removeAttribute('class');
