@@ -1,5 +1,15 @@
 <h1><%= @project.title %></h1>
-<img src="<%= @project.preview.url %>">
+<div class="wrapper">
+  <img src="<%= @project.preview.url %>">
+  <span id="like">&#9825;</span>
+</div>
+<form action="/likes" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="project_id" value="<%= @project.id %>">
+  <%= @project.likes.count %>
+  <button>Like</button>
+</form>
+
 <% if logged_in? %>
   <form action="/comments" method="post">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -13,3 +23,10 @@
   <h1><%= comment.author_name %></h1>
   <p><%= comment.body %></p>
 <% end %>
+
+<script type="text/javascript">
+  var like = document.getElementById('like');
+  like.addEventListener('click', function() {
+    like.innerHTML = "&#10084;";
+  });
+</script>
