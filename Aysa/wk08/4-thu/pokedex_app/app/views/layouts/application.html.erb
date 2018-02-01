@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>PokedexApp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div id='myModal' class='hidden'>
+      <!-- <form action="/pokemons/new" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"> -->
+        <input placeholder='type name' class='nickname'>
+        <input placeholder='type species' class='species'>
+        <input placeholder='type level' class='level'>
+        <button class="btn">submit</button>
+      <!-- </form> -->
+    </div>
+    <header class="header">
+      <button class="addPokemon">add new pokemon</button> 
+      <button>show all pokemons</button>
+    </header>
+    <%= yield %>
+  </body>
+</html>
