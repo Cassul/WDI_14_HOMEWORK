@@ -1,20 +1,22 @@
-// function createTextElement(el, value) {
-//   var element = document.createElement(el);
-//   element.textContent = value;
-//   return element;
-// }
+function createTextElement(el, value) {
+  var element = document.createElement(el);
+  element.textContent = value;
+  return element;
+}
 
-// function createImage(value) {
-//   var image = document.createElement('img');
-//   image.setAttribute('src', value);
-//   return image;
-// }
+function createImage(value) {
+  var image = document.createElement('img');
+  image.setAttribute('src', value);
+  return image;
+}
 var $container = $('.container');
 var options;
 // $('.container').append("<input placeholder='type name of the movie' class='input'>");
 // $('.container').append("<button class='btn'>find</button>");
 $('button').on('click', function () {
-  console.log('hey');
+  if ($('.movie')) {
+    $('.movie').remove();
+  }
   var value = $('input').val();
   options = {
   url: `http://www.omdbapi.com/?apikey=2f6435d9&s=${value}` 
@@ -29,21 +31,26 @@ $('button').on('click', function () {
                     <img src='" + movie.Poster + "'>\
                   </div>"
     $container.append(main);
-    oneMovie();
-    // $body.append(createTextElement('h1', movie.Title));
-    // $body.append(createTextElement('p', movie.Year));
-    // $body.append(createImage(movie.Poster));
   });
+    console.log('hey');
+    oneMovie();
 });
 });
 
 function oneMovie () {
 $('.oneMovie').on('click', function(event) {
+  $('.movie').remove();
   var value = event.target.textContent;
   options = {
-  url: `http://www.omdbapi.com/?apikey=2f6435d9&s=${value}` 
+  url: `http://www.omdbapi.com/?apikey=2f6435d9&t=${value}` 
   };
-  $('.movie').remove();
-  
+  $.ajax(options).done(function(res) {
+  var main = "<div class='movie'>\
+                    <a class='oneMovie' href='#'><h1>" + res.Title + "</h1></a>\
+                    <p>" + res.Year + "</p>\
+                    <img src='" + res.Poster + "'>\
+                  </div>"
+    $container.append(main);
+    });
 });
 }

@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+body, main {
+  width: 100%;
+}
+
+h1 {
+  height: 80px;
+  width: 100px;
+}
+
+.giphy {
+  width: 100%;
+  padding: 10px;
+}
