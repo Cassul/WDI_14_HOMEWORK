@@ -21,7 +21,7 @@ window.onload = function() {
       level: $('.level').val()
     },
     success: function(data) {
-
+      
     }
   };
     $.ajax(options);
