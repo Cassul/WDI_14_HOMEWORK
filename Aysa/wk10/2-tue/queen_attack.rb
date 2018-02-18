@@ -43,7 +43,7 @@ class Queens
       return true
     elsif @white_queen_position[1] == @black_queen_position[1]
       return true
-    elsif @black_queen_position[1] - @white_queen_position[1] == @black_queen_position[0] - @white_queen_position[0]
+    elsif (@black_queen_position[1] - @white_queen_position[1]).abs == (@black_queen_position[0] - @white_queen_position[0]).abs
       return true
     else
       false
